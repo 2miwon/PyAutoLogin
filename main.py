@@ -17,53 +17,149 @@ chrome_options.add_argument('--disable-dev-shm-usage')
 # in repl.it
 driver = webdriver.Chrome(options=chrome_options)
 
-mylist = open("list.csv",'r')
-mysites = []
-myline = mylist.readline()
-while(myline):
-  newlist = myline.split(',')
-  newlist[6] = newlist[6][:-1]
-  mysites.append(newlist);
-  myline = mylist.readline()
 
-def loginModule(url):
-  print("login:: target url: " + url[0])
-  driver.get(url[0])
-  print("login:: login...")
-  for i in range(3, 5):
-    if(url[i][0] == 'n'):
-      elem = driver.find_element_by_name(url[i][2:])
-    elif(url[i][0] == 't'):
-      elem = driver.find_element_by_type(url[i][2:])
-    elif(url[i][0] == 'i'):
-      elem = driver.find_element_by_id(url[i][2:])
-
-    if(i == 3):
-      elem.send_keys(url[1])
-    elif(i == 4):
-      elem.send_keys(url[2])
-      elem.send_keys(Keys.RETURN)
+### setting
+class Setting:
+  def __init__(self):
+    self.SiteList = "list.csv"
   
-  print("login:: successfully login "+ driver.current_url.split('/')[2])
-  print("welcome to " + driver.title)
+  def getSiteList(self):
+    return self.SiteList
+  def setSiteList(self, i):
+    self.SiteList = i
 
-def logoutModule(url):
-  print("logout:: target url: " + url[5])
-  driver.get(url[5])
-  print("logout:: logout...")
-  if(url[6][0] == 'n'):
-    elem = driver.find_element_by_name(url[6][2:])
-  elif(url[6][0] == 't'):
-    elem = driver.find_element_by_type(url[6][2:])
-  elif(url[6][0] == 'i'):
-    elem = driver.find_element_by_id(url[6][2:])
+BasicSet = Setting()
+
+### interaction with HTML
+def ElementFinder(tag):
+  return tag[2:]
+
+def ElementChecker(targetEle):
+  if(targetEle[0] == 'n'): #name
+    return driver.find_element_by_name(ElementFinder(targetEle))
+  elif(targetEle[0] == 't'): #type
+    return driver.find_element_by_type(ElementFinder(targetEle))
+  elif(targetEle[0] == 'i'): #id
+    return driver.find_element_by_id(ElementFinder(targetEle))
+
+def ElementInputID(site):
+  target = ElementChecker(site.E_ID)
+  target.send_keys(site.ID)
+  return True
+
+def ElementInputPW(site):
+  target = ElementChecker(site.E_PW)
+  target.send_keys(site.PW)
+  Enter(target)
+  return True
+
+def LogoutButton(site):
+  target = ElementChecker(site.E_Logout)
+  Click(target)
+  return True
+
+def Enter(target):
+  target.send_keys(Keys.RETURN)
+
+def Click(target):
+  target.click()
+
+### interaction with database(csv)
+SiteDatabase = []
+
+def ReadCSV(setting):
+  return open(setting.getSiteList(),'r')
+
+def ReadLineToList(line, spl):
+  rawlist = line.split(spl)
+  ConvertData(rawlist)
+
+def ConvertData(rawlist):
+  site = Site(rawlist[0], rawlist[1], rawlist[2], rawlist[3], rawlist[4], rawlist[5],rawlist[6][:-1])
+  SiteDatabase.append(site)
+
+### site information
+
+class Site:
+  def __init__(self, URL_Login, ID, PW, E_ID, E_PW, URL_Logout, E_Logout):
+    self.URL_Login = URL_Login
+    self.ID = ID
+    self.PW = PW
+    self.E_ID = E_ID
+    self.E_PW = E_PW
+    self.URL_Logout = URL_Logout
+    self.E_Logout = E_Logout
   
-  elem.click()
+  def MessageLoginURL(self):
+    print("login :: target url: " + self.URL_Login)
+  
+  def MessageSuccessLogin(self):
+    print("login :: successfully login "+ driver.current_url.split('/')[2])
+    print("welcome to " + driver.title)
 
-  print("logout:: successfully logout "+ driver.current_url.split('/')[2])
+  def MessageFailureLogin(self):
+    print("login :: error :: fail login")
 
+  def MessageLogoutURL(self):
+    print("logout :: target url: " + self.URL_Logout)
+  
+  def MessageSuccessLogout(self):
+    print("logout:: successfully logout "+ driver.current_url.split('/')[2])
+
+  def MessageFailureLogout(self):
+    print("logout :: error :: fail logout")
+
+  def Login(self):
+    driver.get(self.URL_Login)
+    print("login :: login...")
+    if(ElementInputID(self) and ElementInputPW(self)): 
+      self.MessageSuccessLogin()
+    else:
+      self.MessageFailureLogin()
+      
+  def Logout(self):
+    driver.get(self.URL_Logout)
+    print("logout :: logout...")
+    if(LogoutButton(self)):
+      self.MessageSuccessLogout()
+    else:
+      self.MessageFailureLogout()
+
+
+### time controller
+
+
+
+### log
+
+
+
+### Module
+def loginModule(site):
+  site.MessageLoginURL()
+  site.Login()
+  
+def logoutModule(site):
+  site.MessageLogoutURL()
+  site.Logout()
+
+def ReadCSVModule():
+  file = ReadCSV(BasicSet)
+  line = file.readline()
+  while(line):
+    ReadLineToList(line, ',')
+    line = file.readline()
+  
 myday = 0
 
+
+
+### main
+ReadCSVModule()
+loginModule(SiteDatabase[0])
+logoutModule(SiteDatabase[0])
+
+"""
 while(True):
   mytime = time.time()
   mytime += 60*60*9
@@ -90,3 +186,4 @@ while(True):
 
 
 #90일비밀번호기능
+#로그인기록 남기기"""
