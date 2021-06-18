@@ -19,6 +19,7 @@ driver = webdriver.Chrome(options=chrome_options)
 
 
 ### setting
+## 지역별/타겟로그파일/몇일에한번 로그인바꾸라하는지
 class Setting:
   def __init__(self):
     self.SiteList = "list.csv"
@@ -127,8 +128,10 @@ class Site:
 
 
 ### time controller
+myday = 0
 
-
+def ConvertUTCtoKst():
+  pass
 
 ### log
 
@@ -150,16 +153,14 @@ def ReadCSVModule():
     ReadLineToList(line, ',')
     line = file.readline()
   
-myday = 0
-
-
 
 ### main
+"""
 ReadCSVModule()
 loginModule(SiteDatabase[0])
 logoutModule(SiteDatabase[0])
-
 """
+
 while(True):
   mytime = time.time()
   mytime += 60*60*9
@@ -171,13 +172,21 @@ while(True):
   else:
     if(myday != tm.tm_min):
       myday = tm.tm_min
+      ReadCSVModule()
+      loginModule(SiteDatabase[0])
+      logoutModule(SiteDatabase[0])
+      start = time.time()
+      end = time.time()
+      timestamp = end-start
+      print("It took {0}second to access {1}".format('.1f'.format(timestamp),(SiteDatabase[0].URL_Login).split('/')[2]))
+      """
       for url in mysites:
         start = time.time()
         loginModule(url)
         logoutModule(url)
         end = time.time()
         timestamp = end-start
-        print("It took {0}second to access {1}".format('.1f'.format(timestamp),url[0].split('/')[2]))
+        print("It took {0}second to access {1}".format('.1f'.format(timestamp),url[0].split('/')[2]))"""
   print("check... now time: {0}/{1}/{2} {3}:{4}".format(tm.tm_year, tm.tm_mon, tm.tm_mday,'{:0>2}'.format(tm.tm_hour),'{:0>2}'.format(tm.tm_min)))
   time.sleep(60*10)
     
@@ -187,3 +196,4 @@ while(True):
 
 #90일비밀번호기능
 #로그인기록 남기기"""
+#로그인실패시 카카오톡 알림
