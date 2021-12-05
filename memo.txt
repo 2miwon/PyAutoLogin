@@ -1,0 +1,67 @@
+https://tolovefeels.tistory.com/86
+
+크롬 드라이버 설치 위치 : /app/.chromedriver/bin/chromedriver
+
+크롬 실행파일 설치 위치 : /app/.apt/usr/bin/google-chrome
+
+selenium
+https://greeksharifa.github.io/references/2020/10/30/python-selenium-usage/
+https://pythondocs.net/selenium/%EC%85%80%EB%A0%88%EB%8B%88%EC%9B%80-%ED%81%AC%EB%A1%A4%EB%9F%AC-%EA%B8%B0%EB%B3%B8-%EC%82%AC%EC%9A%A9%EB%B2%95/
+https://liveyourit.tistory.com/17
+https://yeko90.tistory.com/entry/%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EA%B8%B0%EC%B4%88-NoSuchElementException-ElementNotVisibleException-%EC%97%90%EB%9F%AC-%ED%95%B4%EA%B2%B0-%EB%B0%A9%EB%B2%95
+https://stackoverflow.com/questions/19536954/what-is-the-best-way-to-avoid-nosuchelementexception-in-selenium
+https://neung0.tistory.com/40
+https://thesoul214.github.io/python/2019/06/01/Python-Selenium-2.html
+https://cat-minzzi.tistory.com/28
+https://pgh268400.tistory.com/121
+
+https://blog.naver.com/ythansome/221259598769
+
+날짜 설정에추가
+#90일비밀번호기능
+#로그인기록 남기기"""
+#로그인실패시 카카오톡 알림(챗봇)
+헤로쿠 카드등록하기
+헤로쿠 데이터베이스(sql사용)
+
+출석체크 정리 ( + 사용법 추가 )
+https://on901.tistory.com/863
+https://honeydon.tistory.com/24
+https://m.blog.naver.com/funnycry/221291729239
+https://dobby-tech.tistory.com/entry/%EC%B6%9C%EC%84%9D%EC%B2%B4%ED%81%AC-%EB%A1%AF%EB%8D%B0%ED%8F%AC%EC%9D%B8%ED%8A%B8%EC%97%98%ED%8F%AC%EC%9D%B8%ED%8A%B8%EB%AA%A8%EC%9C%BC%EA%B8%B0-%EC%96%B4%ED%94%8C-%EC%B4%9D%EC%A0%95%EB%A6%AC
+
+import
+https://wikidocs.net/77
+https://kjk92.tistory.com/11
+
+sql
+mysql
+https://yurimkoo.github.io/python/2019/09/14/connect-db-with-python.html
+
+sqlite3
+http://hleecaster.com/python-sqlite3/
+https://github.com/sqlitebrowser/sqlitebrowser
+https://wikidocs.net/5327
+https://wikidocs.net/book/1530
+https://bloodguy.tistory.com/entry/SQLite-%ED%85%8C%EC%9D%B4%EB%B8%94-%EB%A6%AC%EC%8A%A4%ED%8A%B8-%EB%B3%B4%EA%B8%B0-show-tables
+https://www.sqlite.org/cli.html
+https://gentooboy.tistory.com/228
+
+https://suneungmanjeom-leeseungheon.tistory.com/2
+https://qkqhxla1.tistory.com/334
+https://www.delftstack.com/ko/howto/python/python-check-if-variable-exists/
+https://technote.kr/177#second
+https://velog.io/@heezeo/%EB%B3%80%EC%88%98%EB%AA%85-%EC%A7%80%EC%A0%95%EC%9D%98-%EC%9E%90%EB%8F%99%ED%99%94%EA%B0%80-%ED%95%84%EC%9A%94%ED%95%A0-%EB%95%90-globals-%ED%95%A8%EC%88%98
+
+몇시에해야하는지 기능
+db에 타임테이블
+db에 얼마인지 표시
+총 얼마벌었는지 표시
+웹페이지 로딩까지 얼마나걸리는지
+
+쉘 : https://www.w3schools.com/python/trypython.asp?filename=demo_ref_map2
+https://www.pythonanywhere.com/
+
+https://kldp.org/node/157104
+
+2021/12/05 my.musinsa.com : 1
