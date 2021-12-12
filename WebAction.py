@@ -12,6 +12,8 @@ def ElementChecker(targetEle):
     return driver.find_element_by_type(ElementFinder(targetEle))
   elif(targetEle[0] == 'i'): #id
     return driver.find_element_by_id(ElementFinder(targetEle))
+  elif(targetEle[0] == 'c'): #class
+    return driver.find_element_by_class(ElementFinder(targetEle))
   elif(targetEle[0] == 'x'): #xpath
     return GetElement(ElementFinder(targetEle))
 
@@ -40,6 +42,9 @@ def GetPage(url):
 
 def GetPageName():
   return driver.current_url.split('/')[2]
+
+def Cursor(target):
+  driver.move_to_element(target)
 
 # secondary Action
 def ElementInput(E, content):

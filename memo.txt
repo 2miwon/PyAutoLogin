@@ -14,12 +14,12 @@ https://neung0.tistory.com/40
 https://thesoul214.github.io/python/2019/06/01/Python-Selenium-2.html
 https://cat-minzzi.tistory.com/28
 https://pgh268400.tistory.com/121
+https://newly0513.tistory.com/187
+
 
 https://blog.naver.com/ythansome/221259598769
 
-날짜 설정에추가
-#90일비밀번호기능
-#로그인기록 남기기"""
+날짜 설정에추가 (시간기준)
 #로그인실패시 카카오톡 알림(챗봇)
 헤로쿠 카드등록하기
 헤로쿠 데이터베이스(sql사용)
@@ -53,11 +53,21 @@ https://www.delftstack.com/ko/howto/python/python-check-if-variable-exists/
 https://technote.kr/177#second
 https://velog.io/@heezeo/%EB%B3%80%EC%88%98%EB%AA%85-%EC%A7%80%EC%A0%95%EC%9D%98-%EC%9E%90%EB%8F%99%ED%99%94%EA%B0%80-%ED%95%84%EC%9A%94%ED%95%A0-%EB%95%90-globals-%ED%95%A8%EC%88%98
 
+키입력 모듈
+https://www.delftstack.com/ko/howto/python/python-detect-keypress/
+https://minwook-shin.github.io/python-hook-simulate-keyboard-events-using-keyboard/
+https://gozz123.tistory.com/31
+
+https://wikidocs.net/85581
+
+
+https://www.delftstack.com/ko/howto/python/python-exit-program/
+
 몇시에해야하는지 기능
 db에 타임테이블
 db에 얼마인지 표시
-총 얼마벌었는지 표시
 웹페이지 로딩까지 얼마나걸리는지
+스케쥴링
 
 쉘 : https://www.w3schools.com/python/trypython.asp?filename=demo_ref_map2
 https://www.pythonanywhere.com/

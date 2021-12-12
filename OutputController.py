@@ -36,7 +36,8 @@ def MessageBoot():
   print("boot :: time initializing... boot time: " + GetNowTime())
 def MessageRemoveDuplication(URL):
   print("Process :: " + URL + " already accessed today")
-
+def MessageSleep(t):
+  print("System :: sleep " + t + " seconds")
 # Log Control
 def OutputEnter(file):
   file.write("\n")

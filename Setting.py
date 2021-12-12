@@ -8,14 +8,17 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
+### pyautogui
+
+
 ### speeding option
 chrome_options = Options()
 ## gui option
-chrome_options.headless = True
-chrome_options.add_argument("disable-gpu")
-chrome_options.add_argument("disable-infobars")
+#chrome_options.headless = True
+#chrome_options.add_argument("disable-gpu")
+#chrome_options.add_argument("disable-infobars")
+#chrome_options.add_argument("--disable-extensions")
 ##
-chrome_options.add_argument("--disable-extensions")
 chrome_options.add_argument('--no-sandbox')
 chrome_options.add_argument('--disable-dev-shm-usage')
 # in repl.it

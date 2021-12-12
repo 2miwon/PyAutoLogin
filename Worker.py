@@ -16,54 +16,69 @@ def outQueue():
 def Sleep():
   time.sleep(timeSleep)
 
-skip = False
-def Interpreter():
-  process = outQueue()
-  command = process[0]
-  if len(process) != 1:
-    pram = process[1]
+def Interpreter(com, pram):
   try:  
-    if command == "PAGE":
+    if com == "PAGE":
       GetPage(pram[0])
       MessageGetPage()
-    elif command == "CLICK":
+    elif com == "CURSOR":
+      Cursor(pram[0])
+    elif com == "CLICK":
       Sleep()
       MessageClick(ClickButton(pram[0]))
-    elif command == "TEXT":
+    elif com == "TEXT":
       text = GetText(pram[0])
       #inc = ''
       #if isVarExist('Tstack'):
       #  inc = CalculateIncrease()
       MessagePoint(text)
       RecordPoint(filelist[2], GetURLShort(), text)
-    elif command == "LOGIN":
+    elif com == "SLEEP":
+      MessageSleep(pram[0])
+      time.sleep(float(pram[0]))
+    elif com == "LOGIN":
       if Login(pram[0], pram[1], pram[2], pram[3]):
         RecordLogin(filelist[1])
         Sleep()
         MessageSuccessLogin()
       else:
         MessageFailureLogin()
-    elif command == "CHECK":
+    elif com == "CHECK":
       if CheckPage(pram[0], pram[1]):
         MessagePassCheck()
       else:
         MessageSkipChangePW()
-    elif command == "START":
+    elif com == "START":
       if CheckAttendance(pram[0]):
         while process[0] != "END":
           if process[0] == "TEXT":
             RecordPoint(filelist[2], pram[0], point[pram[0]])
           process = outQueue()
         MessageRemoveDuplication(pram[0])
-    elif command == "END":
+    elif com == "END":
       MessageSuccessLogout()
     else:
       pass
     return True
   except TimeoutException:
     MessageTimeOut()
+  except:
+    pass
   finally: 
     return False
+
+def Launcher():
+  process = outQueue()
+  command = process[0]
+  prameter = 0
+  if len(process) != 1:
+    prameter = process[1]
+  Interpreter(command, prameter)
+
+def Console(inp):
+  tlist = inp.split(' ')
+  plist = tlist[1:]
+  Interpreter(tlist[0], plist)
 
 def txtTOqueue(file):
   f = TXT.ReadFile("process.txt")
@@ -75,7 +90,7 @@ def txtTOqueue(file):
 
 def Processing():
   while not queue.empty():
-    if not Interpreter():
+    if not Launcher():
         continue
 
 def ShutDown(filelist):
@@ -121,10 +136,4 @@ def CheckAttendance(sn):
     if GetNowDay() == stamp[sn]:
       return True
   return False
-
-#main
-Booting()
-while True:
-  Processing()
-  time.sleep(60*60*12)
-ShutDown(filelist)
+  
