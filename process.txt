@@ -2,18 +2,26 @@ START my.musinsa.com
 PAGE https://my.musinsa.com/login/v1/login?referer=https%3A%2F%2Fstore.musinsa.com%2Fapp%2F
 LOGIN n_id zhengsfsf n_pw dlagmldnjs12
 CHECK store.musinsa.com i_changeSkipBtn
-PAGE https://my.musinsa.com/member/v1/mypage
-TEXT /html/body/div[2]/main/div/section/div[2]/div[3]/a[2]/strong
+PAGE https://www.musinsa.com/member/mission/new-brand
+CLICK /html/body/main/section/section[4]/div/div[2]/ul/li[1]
+CLICK /html/body/div[3]/div[1]/div[1]/div[2]/div[1]/div[1]/a[2]
+CLICK /html/body/div[3]/div[1]/div[1]/div[2]/div[3]/div/div/div[1]/div[1]/div
+INPUT /html/body/div[3]/div[1]/div[1]/div[2]/div[3]/div/div/div[1]/div[3]/div/form[1]/div[1]/textarea 응원합니다요
+ENTER /html/body/div[3]/div[1]/div[1]/div[2]/div[3]/div/div/div[1]/div[3]/div/form[1]/div[1]/textarea
+CLICK /html/body/div[3]/div[1]/div[1]/div[2]/div[1]/div[1]/a[2]
+PAGE https://www.musinsa.com/member/mission/new-brand
+CLICK /html/body/main/section/section[6]/div/button
+/TEXT /html/body/div[2]/main/div/section/div[2]/div[3]/a[2]/strong
 PAGE https://store.musinsa.com/app/
-LICK /html/body/div[2]/div/div[2]/div/div[3]/div[10]/a
+/CLICK /html/body/div[2]/div/div[2]/div/div[3]/div[10]/a
 END
-START www.a-ha.io
-PAGE https://auth.a-ha.io/login/email
-LOGIN x_/html/body/div/div/div/main/div/form/div/div/div/div/div[1]/div/input niminimi321@daum.net x_/html/body/div/div/div/main/div/form/div/div/div/div/div[2]/div/input dlagmldnjs12
-PAGE https://www.a-ha.io/my-page/tokens/stamps
-#CURSOR /html/body/div[1]/div/div/div/section/div[3]/div[2]/div/div/header/button/
-CLICK /html/body/div[1]/div/div/div/section/div[3]/div[2]/div/div/header/button/
-PAGE https://www.a-ha.io/my-page/tokens/assets
-TEXT /html/body/div[1]/div/div/div/section/div[3]/div[2]/div/div/div[1]/div/h1/span
-CLICK /html/body/div[1]/div/div/div/nav/div[1]/div/button#CLICK /html/body/div[1]/div/div/div/div[1]/div[1]/div/div/div[4]/button
-#END
+/START www.a-ha.io
+/PAGE https://auth.a-ha.io/login/email
+/LOGIN x_/html/body/div/div/div/main/div/form/div/div/div/div/div[1]/div/input /niminimi321@daum.net /x_/html/body/div/div/div/main/div/form/div/div/div/div/div[2]/div/input dlagmldnjs12
+/PAGE https://www.a-ha.io/my-page/tokens/stamps
+/#CURSOR /html/body/div[1]/div/div/div/section/div[3]/div[2]/div/div/header/button/
+/CLICK /html/body/div[1]/div/div/div/section/div[3]/div[2]/div/div/header/button/
+/PAGE https://www.a-ha.io/my-page/tokens/assets
+/TEXT /html/body/div[1]/div/div/div/section/div[3]/div[2]/div/div/div[1]/div/h1/span
+/CLICK /html/body/div[1]/div/div/div/nav/div[1]/div/button#CLICK /html/body/div[1]/div/div/div/div[1]/div[1]/div/div/div[4]/button
+/#END

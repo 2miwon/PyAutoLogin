@@ -1,4 +1,4 @@
-from Setting import *
+from SeleniumSetting import *
 from TimeController import *
 import time
 import IO_txt as TXT

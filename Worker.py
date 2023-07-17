@@ -1,7 +1,7 @@
 from queue import Queue
 import os
 
-from WebAction import *
+from SeleniumAction import *
 from OutputController import *
 
 
@@ -57,6 +57,12 @@ def Interpreter(com, pram):
         MessageRemoveDuplication(pram[0])
     elif com == "END":
       MessageSuccessLogout()
+    elif com == "INPUT":
+      if ElementInput(pram[0], pram[1]):
+        pass
+    elif com == "ENTER":
+      if ElementEnter(pram[0]):
+        document.send_keys(Keys.RETURN)       
     else:
       pass
     return True
